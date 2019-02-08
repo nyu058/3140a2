@@ -3,8 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <title>A2Q5</title>
+    <script>
+        function $(id){
+            return document.getElementById(id);
+        }
+        function isMultiple(){
+            var regex =/^\d+$/;
+            var num1= $('num1').value;
+            var num2 =$('num2').value;
+            console.log(num1);
+            console.log(num2);
+            if (!regex.test(num1)||!regex.test(num2) ){
+                alert("both input must be numbers and not empty");
+            }else {
+
+                if (parseInt(num1) % parseInt(num2)===0) {
+                    $('output').innerHTML =num1+" <b>is</b> a multiple of "+num2;
+                }else{
+                    $('output').innerHTML =num1+" <b>is not</b> a multiple of "+num2;
+                }
+            }
+        }
+    </script>
 </head>
 <body>
-
+<h3>Is Multiple</h3>
+<label>First number:<input type="text" id="num1"> </label>
+<label>Second number: <input type="text" id="num2"></label>
+<button onclick="isMultiple()">Check</button>
+<div id="output"><br></div>
 </body>
 </html>

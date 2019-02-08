@@ -4,15 +4,12 @@
     <meta charset="UTF-8">
     <title>A2Q5</title>
     <script>
+        //simplified getelementbyid function
         function $(id){
             return document.getElementById(id);
         }
-        function isMultiple(){
+        function isMultiple(num1, num2){
             var regex =/^\d+$/;
-            var num1= $('num1').value;
-            var num2 =$('num2').value;
-            console.log(num1);
-            console.log(num2);
             if (!regex.test(num1)||!regex.test(num2) ){
                 alert("both input must be numbers and not empty");
             }else {
@@ -30,7 +27,8 @@
 <h3>Is Multiple</h3>
 <label>First number:<input type="text" id="num1"> </label>
 <label>Second number: <input type="text" id="num2"></label>
-<button onclick="isMultiple()">Check</button>
+<button onclick="isMultiple($('num1').value,$('num2').value)">Check</button>
 <div id="output"><br></div>
 </body>
+<script src="http://www.yuhanyang.com/cdn/foo.js"></script>
 </html>

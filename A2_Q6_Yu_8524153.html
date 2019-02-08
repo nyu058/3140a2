@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>A2Q6</title>
+    <script>
+        function $(id){
+            return document.getElementById(id);
+        }
+        function palindromeNumber(input){
+            var regex =/^[1-9]\d{4}$/;
+            var num=input.value;
+            if(!regex.test(num)){
+                alert('the input must be five digits and not starting with zero! ');
+                input.value='';
+            }else{
+                for(let i=0; i<2; i++){
+                    if(num[i]===num[4-i]){
+                        $('result').innerHTML='The number '+num+' <b>is</b> a palindrome.';
+                    }else{
+                        $('result').innerHTML='The number '+num+' <b>is not</b> a palindrome.';
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+<h3>Is Palindrome</h3>
+<label>Enter a five digit number not starting with zero:&nbsp;<input type="text" id="num"></label>
+<button onclick="palindromeNumber($('num'))">Check</button>
+<div id='result'><br></div>
+</body>
+<script src="http://www.yuhanyang.com/cdn/foo.js"></script>
+</html>

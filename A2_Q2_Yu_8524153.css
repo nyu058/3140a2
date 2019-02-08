@@ -1,0 +1,16 @@
+.mylink a{
+    border: 2px solid green;
+    border-radius: 4px;
+    color: blue;
+    background-color:lightgreen;
+    text-decoration: none;
+    padding: 3px 8px 3px 8px;
+}
+.mylink a:hover{
+    border: 2px solid green;
+    border-radius: 4px;
+    color: red;
+    background-color: white;
+    text-decoration: none;
+    padding: 3px 8px 3px 8px;
+}

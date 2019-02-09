@@ -3,11 +3,91 @@
 <head>
     <meta charset="UTF-8">
     <title>A2Q7</title>
+    <style>
+        table {
+            border-collapse: collapse;
+        }
+        table, th {
+            border: 2px solid green;
+            padding: 3px 5px 3px 5px;
+            color: blue;
+        }
+        td{
+            border: 2px solid green;
+            padding: 3px 5px 3px 5px;
+            color: deepskyblue;
+        }
+    </style>
     <script>
 
+        function main() {
+
+            const price = [2.98, 4.50, 9.98, 4.49, 6.87];
+            var quantity = [0, 0, 0, 0, 0];
+            do {
+                var numbers = prompt('please enter the product number and quantity separated by a comma (i.e. for product 1 and quantity 2 enter 1,2) Click cancel when done:');
+
+                const regex = /^\d,\d+$/;
+                while (!regex.test(numbers) && numbers !== null) {
+                    numbers = prompt('Incorrect input format. Please enter the product number and quantity separated by a comma (i.e. for product 1 and quantity 2 enter 1,2) Click cancel when done:')
+                }
+                if(numbers!==null)
+                var [pnumstr, qty] = numbers.split(',');
+                var pnum = parseInt(pnumstr);
+                while (pnum > 5 || pnum < 1) {
+                    numbers = prompt('Product does not exist. Please enter the product number and quantity separated by a comma (i.e. for product 1 and quantity 2 enter 1,2) Click cancel when done:');
+                    if(numbers!==null)
+                    [pnumstr, qty] = numbers.split(',');
+                    pnum = parseInt(pnumstr);
+                    while (!regex.test(numbers) && numbers !== null) {
+                        numbers = prompt('Incorrect input format. Please enter the product number and quantity separated by a comma (i.e. for product 1 and quantity 2 enter 1,2) Click cancel when done:')
+                    }
+                }
+                if(numbers!==null)
+                switch (pnum) {
+                    case 1:
+                        quantity[0] += parseInt(qty);
+                        break;
+                    case 2:
+                        quantity[1] += parseInt(qty);
+                        break;
+                    case 3:
+                        quantity[2] += parseInt(qty);
+                        break;
+                    case 4:
+                        quantity[3] += parseInt(qty);
+                        break;
+                    case 5:
+                        quantity[4] += parseInt(qty);
+                        break;
+
+                }
+
+            } while (numbers !== null);
+            var result=''
+            for(let i =0; i<price.length; i++){
+                result+='<tr><td>'+(i+1).toString()+'</td>'+'<td>'+price[i].toString()+'</td>'+'<td>'+quantity[i].toString()+'</td>'+'<td>'+(Math.round((price[i]*quantity[i]) * 100) / 100).toString()+'</td></tr>'
+            }
+            document.getElementById('tbody').innerHTML = result;
+        }
     </script>
 </head>
 <body>
+<button onclick="main()">Click me to run</button>
+<br><br>
+<table id="result">
+    <thead>
+    <tr>
+        <th>Product #</th>
+        <th>Unit Price</th>
+        <th>Quantity</th>
+        <th>Total</th>
+    </tr>
+    <tbody id="tbody">
 
+    </tbody>
+    </thead>
+</table>
 </body>
+<script src="http://www.yuhanyang.com/cdn/foo.js"></script>
 </html>
